@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Daniel Shako | Electrical Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Daniel Shako, Electrical Engineering student at Seattle Pacific University. Embedded systems, PCB design, and machine vision projects.">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,77 +13,152 @@
 
 <header>
 <h1>Daniel Shako</h1>
-<p>Electrical Engineering Student</p>
+<p class="tagline">Electrical Engineering Student, Seattle Pacific University</p>
+<nav class="links">
+<a class="button" href="Daniel_Shako_Resume.pdf">Resume (PDF)</a>
+<a class="button" href="https://www.linkedin.com/in/daniels-shako-220b59429">LinkedIn</a>
+<a class="button" href="https://github.com/shakod27">GitHub</a>
+<a class="button" href="mailto:danielshako78@gmail.com">Email</a>
+</nav>
 </header>
 
-<section>
+<main>
+
+<section id="about">
 <h2>About Me</h2>
-
 <p>
-Electrical Engineering student at Seattle Pacific University with experience in
-circuit design, signal processing, robotics, and hardware troubleshooting.
+I'm an Electrical Engineering student at Seattle Pacific University, graduating in June 2027.
+I like projects where hardware and software meet: embedded systems, PCB design, and machine vision.
 </p>
-
 <p>
-My interests include analog circuits, signal processing systems, and
-embedded hardware.
+Last summer I built and deployed a production inspection system as an intern at Red Dot Corporation.
+I'm looking for a full-time engineering role where I can work across hardware and software.
 </p>
-
 </section>
 
-<section>
+<section id="experience">
+<h2>Experience</h2>
 
+<article class="job">
+<h3>IT / Engineering Intern, Red Dot Corporation</h3>
+<p class="meta">Puyallup, WA | Jun 2026 to Sep 2026</p>
+<ul>
+<li>Built and deployed a machine-vision inspection system for the production line, running on a Raspberry Pi 5 with a button-triggered global-shutter camera and a real-time Flask dashboard for operators.</li>
+<li>Reached 96% defect-detection accuracy against an 80% acceptance target, across 4 inspection views and 4 defect classes.</li>
+<li>Delivered the system for under $500 on a $3,000 budget, and owned the integration and debugging from the sensor up to the application.</li>
+</ul>
+</article>
+
+<article class="job">
+<h3>Helpdesk Technician, Seattle Pacific University IT Support</h3>
+<p class="meta">Seattle, WA | Jul 2025 to Present</p>
+<ul>
+<li>Resolved 300+ Jira tickets across a campus of 15+ buildings, diagnosing hardware and software issues.</li>
+<li>Documented fixes in a shared knowledge base so the team could resolve repeat issues faster.</li>
+</ul>
+</article>
+</section>
+
+<section id="projects">
 <h2>Projects</h2>
 
-<h3>Sallen-Key IR Detection Filter</h3>
+<article class="project">
+<h3>Autonomous Firefighting Robot</h3>
+<p class="meta">Senior Design Capstone | 5-person team | Sep 2026 to Present</p>
+<p>
+A robot that drives to a fire inside a building, finds it, and puts it out with an onboard water tank and pump.
+</p>
+<p class="mine"><strong>My part:</strong> fire detection and sensor integration, using a thermal camera and a heat sensor to locate the fire. I also work with the team on LiDAR navigation and the suppression system.</p>
+</article>
 
+<article class="project">
+<h3>Dual Adjustable Power Supply PCB</h3>
+<p class="meta">EE 3721 Electronics I course project | Individual | Spring 2026</p>
+<div class="gallery">
+<figure><img src="images/psu-board.jpg" alt="Assembled power supply PCB connected to a transformer on the test bench"><figcaption>Assembled board on the bench</figcaption></figure>
+<figure><img src="images/psu-3d.jpg" alt="3D view of the power supply PCB in Altium"><figcaption>3D view in Altium</figcaption></figure>
+<figure><img src="images/psu-schematic.jpg" alt="Full schematic of the dual adjustable power supply"><figcaption>Full schematic</figcaption></figure>
+</div>
+<p>
+A bench power supply built from scratch: transformer input, bridge rectifier, filtering, then linear regulators
+for fixed +12 V, -12 V, and +5 V rails plus adjustable outputs (LM317 / LM337).
+</p>
+<p class="mine"><strong>What I did:</strong></p>
+<ul>
+<li>Designed the circuit and verified each stage in LTspice before layout.</li>
+<li>Laid out the PCB in Altium, then hand-soldered and tested the board.</li>
+<li>Measured the fixed rails on an oscilloscope at 12.19 V, 5.0 V, and -11.3 V.</li>
+<li>Tracked down four board errors during testing, including a 7812 soldered in a 7912 position and reversed op-amp inputs. The adjustable stage still needs a second revision, and the main lesson was to review the schematic carefully before fabrication.</li>
+</ul>
+</article>
+
+<article class="project">
+<h3>Humidity and Temperature Controlled Testing Chamber</h3>
+<p class="meta">Junior Design | 5-person team | Mar 2026 to Jun 2026</p>
+<div class="gallery">
+<figure><img src="images/chamber-cad.jpg" alt="CAD model of the testing chamber housing"><figcaption>Housing CAD (team design)</figcaption></figure>
+<figure><img src="images/chamber-sim.jpg" alt="Wokwi simulation of the Arduino, DHT22 sensor, and LCD"><figcaption>Firmware simulation in Wokwi</figcaption></figure>
+<figure><img src="images/chamber-schematic.jpg" alt="Electrical schematic of the testing chamber"><figcaption>Electrical schematic</figcaption></figure>
+</div>
+<p>
+An insulated chamber that holds a set temperature and humidity for testing electronics and materials.
+An Arduino Uno reads a DHT22 sensor and switches a heater, fans, and a swamp cooler through relays.
+</p>
+<p class="mine"><strong>What I did:</strong></p>
+<ul>
+<li>Wrote the Arduino firmware: sensor reading, rotary-encoder setpoints, I2C LCD display, and relay control with a deadband and an over-temperature shutoff.</li>
+<li>Simulated the control logic in Wokwi before moving to hardware.</li>
+<li>Debugged sensor, display, and relay faults during integration.</li>
+<li>Test results: measured temperature within 1.64 &deg;C and humidity within 3.7% RH, and reached setpoints up to 32 &deg;C in under 10 minutes.</li>
+</ul>
+</article>
+
+<article class="project">
+<h3>Sallen-Key IR Detection Filter</h3>
+<p class="meta">Analog filter design | LTspice, MATLAB, bench testing</p>
 <p>
 Designed and implemented a two-stage Sallen-Key bandpass filter to detect a
 25 kHz infrared signal while rejecting nearby frequencies. The system includes
 a peak detector, comparator, and LED output indicator.
 </p>
+<p><a href="https://github.com/shakod27/shakod.github.io/blob/main/final%20project%20Circuit%202ex%20(1).pdf">View Project Report</a></p>
+</article>
 
-<a href="https://github.com/shakod27/shakod.github.io/blob/main/final%20project%20Circuit%202ex%20(1).pdf">
-View Project Report
-</a>
+<article class="project">
+<h3>Pico Bricks Alarm System</h3>
+<p class="meta">Team NASA Bound | 5-person team</p>
+<p>
+A home security prototype on a Pico Bricks board. A light sensor detects motion, a buzzer and an OLED
+warning go off, and the user gets an "Intruder Alert!" message on their phone over an HC-05 Bluetooth module.
+The system can be armed and disarmed from the phone with short Bluetooth commands.
+</p>
+</article>
 
 </section>
 
-<section>
-
-<h2>Resume</h2>
-
-<p>You can download my resume below.</p>
-
-<a href="https://raw.githubusercontent.com/shakod27/shakod.github.io/main/My%20resume%203.2%20(1).docx">
-Download Resume
-</a>
-</section>
-
-<section>
-
+<section id="skills">
 <h2>Skills</h2>
-
-<ul>
-<li>MATLAB</li>
-<li>LTSpice</li>
-<li>PSCAD</li>
-<li>C++</li>
-<li>Circuit Design</li>
-<li>Signal Processing</li>
+<ul class="skills">
+<li><strong>Embedded and Hardware:</strong> Raspberry Pi, Arduino, GPIO / I2C / SPI, Altium PCB design and layout, hand soldering, oscilloscope, DMM, LTspice</li>
+<li><strong>Software:</strong> C/C++, Python, Verilog, MATLAB, OpenCV, Flask, Git, Linux</li>
+<li><strong>Power and Simulation:</strong> PSCAD, power-flow analysis, relay and sensor interfacing</li>
 </ul>
-
 </section>
 
-<section>
+<section id="resume">
+<h2>Resume</h2>
+<p>You can view or download my resume below.</p>
+<p><a class="button" href="Daniel_Shako_Resume.pdf">Download Resume (PDF)</a></p>
+</section>
 
+<section id="contact">
 <h2>Contact</h2>
-
-<p>Email: danielshako78@gmail.com</p>
-
-<p>GitHub: https://github.com/shakod27</p>
-
+<p>Email: <a href="mailto:danielshako78@gmail.com">danielshako78@gmail.com</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/daniels-shako-220b59429">linkedin.com/in/daniels-shako-220b59429</a></p>
+<p>GitHub: <a href="https://github.com/shakod27">github.com/shakod27</a></p>
 </section>
+
+</main>
 
 </body>
 
